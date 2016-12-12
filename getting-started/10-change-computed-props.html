@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Computed</title>
+	<script src="js/vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+  <button v-on:click="counter++">Up</button>
+  <button v-on:click="counter--">Down</button>
+  <button v-on:click="counter2++">Counter2</button>
+
+  <p>counter: {{ counter }} | {{ counter2 }}</p>
+  <p>Result: {{ result() }} | {{ output }}</p>
+</div>
+<div>
+  data stored in prop function.
+</div>
+	
+	<script>
+		new Vue({
+	el: '#app',
+  data: {
+  	counter: 0,
+    counter2: 0
+  },
+  computed: {
+    output: function() {
+      console.log('computed output');
+      return this.counter > 5 ? 'Greater than 5' : 'Smaller than 5';
+    }
+  },
+  methods: {
+    result: function() {
+      console.log('methods output');
+      return this.counter > 5 ? 'Greater than 5' : 'Smaller than 5';
+    }
+  }
+});
+	</script>
+</body>
+</html>
