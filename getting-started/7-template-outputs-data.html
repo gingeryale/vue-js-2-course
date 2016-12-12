@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>beginner vue2</title>
+	<script src="js/vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+  <p>my name is {{ name }}</p>
+  <p>my age is {{ age }}</p>
+  <p>my age * 3 is {{ age*3 }}</p>
+  <p>Random number between 0 - 1 is {{ random() }}</p>
+  <p> outputing an image from v-bind: <br /><img v-bind:src="imgLink"></p>
+  <p>
+  <input type="text" v-bind:value="name"
+  </p>
+</div>
+	
+	<script>
+		new Vue({
+	el: '#app',
+  data: {
+  	name: 'Gingeryale',
+    imgLink:'http://fillmurray.com/100/100',
+    age: 99
+  },
+  methods: {
+  	random: function() {
+    	return Math.random();
+    }
+  }
+});
+	</script>
+</body>
+</html>

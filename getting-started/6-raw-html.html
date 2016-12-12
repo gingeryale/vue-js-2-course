@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>beginner vue2</title>
+	<script src="js/vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+<h1 v-once>{{ title }}</h1>
+  <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
+  <hr>
+  <p>{{ finishedLink }}</p>
+  <p v-html="finishedLink"></p>
+  <p>Default behavior of vuejs escapes html renders text. Source is safe? cleaned up? render HTML with v-html directive.</p>
+</div>
+	
+	<script>
+		new Vue({
+	el: '#app',
+  data: {
+  	title: 'Hello World! rendered once',
+    link: 'http://www.google.com',
+    finishedLink: '<a href="http://www.google.com">Google</a>'
+  },
+  methods: {
+  	sayHello: function() {
+      this.title = "Hello from sayHello title prop function";
+    	return this.title;
+    }
+  }
+});
+	</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>beginner vue2</title>
+	<script src="js/vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+<h1 v-once>{{ title }}</h1>
+  <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
+  <p>Executing 'Say Hello' we override the value of title in 'data.' we're re-setting it! By adding directive v-once it only targets 1 instance.</p>
+</div>
+	
+	<script>
+		new Vue({
+	el: '#app',
+  data: {
+  	title: 'Hello World! rendered once',
+    link: 'http://www.google.com',
+  },
+  methods: {
+  	sayHello: function() {
+      this.title = "Hello from sayHello title prop function";
+    	return this.title;
+    }
+  }
+});
+	</script>
+</body>
+</html>

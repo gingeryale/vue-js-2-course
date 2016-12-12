@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>beginner vue2</title>
+	<script src="js/vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+  <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
+  <p>directive is instruction tells to bind somthing to data includes function stored in vuejs instance. Pass args to directive with colon expecting attr we want to bind. the ref we want to pass. dynamic data passed to html attrs.</p>
+</div>
+	
+	<script>
+		new Vue({
+	el: '#app',
+  data: {
+  	title: 'Hello World! from calling function accessing title property by proxy',
+    link: 'http://www.google.com'
+  },
+  methods: {
+  	sayHello: function() {
+    	return this.title;
+    }
+  }
+});
+	</script>
+</body>
+</html>
