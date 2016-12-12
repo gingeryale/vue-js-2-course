@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Click Event</title>
+	<script src="js/vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+  <button v-on:click="addUp(10, $event)">Add by 10</button>
+   <button v-on:click="counter++">Add by 1</button>
+  <p>{{ counter }}</p>
+  <p v-on:mousemove="updateCoordinates">Coordinates: x - {{ x }} / y - {{ y }} 
+  <span style="height:10px"v-on:mousemove.stop> - Stop propagation</span>
+  </p>
+  <p>{{ counter * 3 > 50 ? 'Greater than 10' : 'smaller than 10'}}</p>
+  <p>adding stop or prevent on mousemove is a modifier and we don't need the function call. Can call counter++ as long as single JS expression / statement.</p>
+  <input type="text" v-on:keyup.enter="alert" name="">
+  <p><button v-on:click="alert2">show alert</button></p>
+   <div>
+    <input type="text" v-on:keydown="value = $event.target.value">
+  <p>{{ value }}</p>
+  </div>
+  <div>
+    <input type="text" v-on:keydown.enter="value = $event.target.value">
+  <p>{{ value }}</p>
+  </div>
+</div>
+	
+	<script>
+		new Vue({
+	el: '#app',
+  data: {
+  	counter: 0,
+    x:0,
+    y:0
+  },
+  methods: {
+  	addUp: function(step, event){
+    	this.counter+=step;
+    },
+    updateCoordinates: function(e){
+      this.x = e.clientX;
+      this.y = e.clientY;
+    },
+    noAction: function(e){
+      e.stopPropagation();
+    },
+    alert: function(){
+      alert('pressed enter');
+    },
+    alert2: function(){
+      alert('pressed button');
+    }
+  }
+});
+	</script>
+</body>
+</html>
